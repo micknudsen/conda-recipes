@@ -1,0 +1,50 @@
+{% set name = "ctat-genome-lib-builder" %}
+{% set git_rev = "1cf500c" %}
+
+package:
+  name: {{ name }}
+  version: {{ git_rev }}
+
+source:
+  git_url: https://github.com/TrinityCTAT/ctat-genome-lib-builder
+  git_rev: '{{ git_rev }}'
+
+build:
+  number: 0
+  noarch: generic
+
+requirements:
+  host:
+    - blast
+    - dfam
+    - hmmer
+    - minimap2
+    - pandas
+    - perl
+    - perl-db-file
+    - perl-uri
+    - python
+    - samtools
+    - star
+  run:
+    - blast
+    - dfam
+    - hmmer
+    - minimap2
+    - pandas
+    - perl
+    - perl-db-file
+    - perl-uri
+    - python
+    - samtools
+    - star
+
+test:
+  commands:
+    - prep_genome_lib 2>&1 | grep Required
+
+about:
+  home: "https://github.com/TrinityCTAT/ctat-genome-lib-builder"
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: "Software used by Trinity CTAT for building CTAT Genome Libs, resource databases shared by Trinity CTAT components."
