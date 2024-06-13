@@ -4,7 +4,7 @@ This folder contains a recipe for [CTAT-GENOME-LIB-BUILDER](https://github.com/T
 
 * `prep_genome_lib`
 
-is available from the prompt.
+is available from the prompt. Note that there are no formal releases of CTAT-GENOME-LIB-BUILDER, and therefore I have not even attempted to make a bioconda recipe.
 
 # Install
 
