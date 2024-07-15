@@ -1,0 +1,47 @@
+{% set version = "3.0.0" %}
+
+package:
+  name: r-sequenza-hg38
+  version: {{ version }}
+
+source:
+  - git_url: https://bitbucket.org/sequenzatools/sequenza.git
+    git_rev: {{ version }}
+    folder: sequenza
+  - git_url: https://github.com/ShixiangWang/copynumber.git
+    git_rev: 2e31d59
+    folder: copynumber
+
+build:
+  number: 0
+  noarch: generic
+  rpaths:
+     - lib/R/lib/
+     - lib/
+
+requirements:
+  host:
+    - bioconductor-genomicranges
+    - bioconductor-iranges
+    - bioconductor-s4vectors
+    - r-base ==3.5.1
+    - r-iotools
+    - r-pbapply
+    - r-readr
+    - r-seqminer
+    - r-squash
+  run:
+    - bioconductor-genomicranges
+    - bioconductor-iranges
+    - bioconductor-s4vectors
+    - r-base ==3.5.1
+    - r-iotools
+    - r-pbapply
+    - r-readr
+    - r-seqminer
+    - r-squash
+
+about:
+  home: 'https://sequenzatools.bitbucket.io, Mailing list: https://groups.google.com/forum/#!forum/sequenza-user-group'
+  license: GPL-3
+  summary: "Sequenza packed with patched copynumber package to support hg38"
