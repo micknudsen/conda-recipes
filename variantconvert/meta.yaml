@@ -1,0 +1,30 @@
+package:
+  name: variantconvert
+  version: '2.0.1'
+
+source:
+  git_rev: 2.0.1
+  git_url: git@github.com:SamuelNicaise/variantconvert.git
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 0
+
+requirements:
+  host:
+    - pip
+    - python >=3.8
+    - setuptools
+  run:
+    - appdirs
+    - natsort
+    - pandas
+    - polars
+    - pyfaidx
+    - python >=3.8
+    - tqdm
+
+about:
+  home: https://github.com/SamuelNicaise/variantconvert
+  license: AGPLv3
