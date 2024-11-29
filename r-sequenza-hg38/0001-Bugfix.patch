@@ -1,0 +1,25 @@
+From 9cd8a0e9da123cb9a31e27d2eab630b5c0f321a1 Mon Sep 17 00:00:00 2001
+From: Michael Knudsen <michaelk@clin.au.dk>
+Date: Thu, 28 Nov 2024 16:04:08 +0100
+Subject: [PATCH] Bugfix
+
+---
+ R/results.R | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/R/results.R b/R/results.R
+index e608611..eb4fb62 100644
+--- a/R/results.R
++++ b/R/results.R
+@@ -27,6 +27,8 @@ sequenza.results <- function(sequenza.extract, cp.table = NULL,
+     robj.fit <- make_filename("sequenza_cp_table.RData")
+     log.file <- make_filename("sequenza_log.txt")
+     seg.tab <- do.call(rbind, sequenza.extract$segments[chromosome.list])
++
++    seg.tab <- seg.tab[seg.tab$N.BAF > 1,]
+     seg.len <- (seg.tab$end.pos - seg.tab$start.pos) / 1e6
+ 
+     avg.depth.ratio <- sequenza.extract$avg.depth.ratio
+-- 
+2.43.5
+

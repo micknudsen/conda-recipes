@@ -8,12 +8,14 @@ source:
   - git_url: https://bitbucket.org/sequenzatools/sequenza.git
     git_rev: {{ version }}
     folder: sequenza
+    patches:
+      - 0001-Bugfix.patch
   - git_url: https://github.com/ShixiangWang/copynumber.git
     git_rev: 2e31d59
     folder: copynumber
 
 build:
-  number: 0
+  number: 1
   noarch: generic
   rpaths:
      - lib/R/lib/
