@@ -1,0 +1,19 @@
+diff -Naur original/R/extract.R modified/R/extract.R
+--- original/R/extract.R	2025-05-15 10:08:35.807564811 +0200
++++ modified/R/extract.R	2025-05-15 10:09:37.701428862 +0200
+@@ -51,10 +51,12 @@
+         if (verbose) {
+             message("Processing ", chr, ":", appendLF = TRUE)
+         }
+-        tbi <- file.exists(paste0(file, ".tbi"))
+-        if (tbi) {
++        seqz.data <- try({
+             seqz.data   <- read.seqz(file, chr_name = chr)
+-        } else {
++        })
++        if (inherits(seqz.data, "try-error")) {
++            message("   Error tabix reading file ", file, " for chromosome ", chr,
++                ". Defaulting to simple reading.", appendLF = TRUE)
+             file.lines <- gc.stats$file.metrics[which(chr.vect == chr), ]
+             seqz.data   <- read.seqz(file, n_lines = c(file.lines$start,
+                 file.lines$end))
