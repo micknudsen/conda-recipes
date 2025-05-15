@@ -5,7 +5,7 @@ This folder contains a recipe for [Sequenza](https://bitbucket.org/sequenzatools
 # Patches
 
 * A bug triggered in very rare cases where `N.baf=1` for a segment.
-* When the seqz file is tabix index, Sequenza stores output for entire chromosomes in a string. Sometimes this exceeds the maximal object size in R. Use try/catch to resort to default seqz reader when this happes.
+* When the seqz file is tabix indexed, Sequenza stores output for entire chromosomes in a string. Sometimes this exceeds the maximal object size in R. Use try/catch to resort to default seqz reader when this happes.
 
 I have encountered numerous issues with the original `r-sequenza` package from bioconda, and after a lot of testing, it seems that everything works with `r-base ==3.5.1`. Therefore I have made this pinning explicit in the recipe.
 
