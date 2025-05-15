@@ -10,7 +10,7 @@ source:
     folder: sequenza
     patches:
       - 0001-Bugfix.patch
-      - 0002-Tabux.patch
+      - 0002-Tabix.patch
   - git_url: https://github.com/ShixiangWang/copynumber.git
     git_rev: 2e31d59
     folder: copynumber
